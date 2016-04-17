@@ -1,0 +1,18 @@
+<h1><%= @contact.first_name %></h1>
+
+<p>
+  <%= @contact.last_name %>
+</p>
+
+<p>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <%= @contact.phone_number %>
+</p>
+
+<%= link_to "Back", root_path %>
+
+<a href="/contacts/#{@contact.id}/edit">Edit</a> | 
+<%= link_to "Delete", "/contacts/#{@contact.id}",  method: :delete %>
