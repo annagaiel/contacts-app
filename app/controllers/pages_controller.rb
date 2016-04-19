@@ -41,4 +41,8 @@ class PagesController < ApplicationController
     @contact.destroy
     redirect_to root_path
   end
+
+  def all_marks
+     @all_marks = User.all_marks
+  end
 end

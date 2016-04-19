@@ -1,4 +1,9 @@
-<h1><%= @contact.first_name %></h1>
+<h1><%= @contact.full_name %>
+</h1>
+
+<p>
+  <%= @contact.first_name %>
+</p>
 
 <p>
   <%= @contact.last_name %>
@@ -9,10 +14,14 @@
 </p>
 
 <p>
-  <%= @contact.phone_number %>
+  <%= @contact.japan_number %>
+</p>
+
+<p>
+  <%= @contact.friendly_created_at %>
 </p>
 
 <%= link_to "Back", root_path %>
 
-<a href="/contacts/#{@contact.id}/edit">Edit</a> | 
+<a href="/contacts/#{@contact.id}/edit">Edit</a> |
 <%= link_to "Delete", "/contacts/#{@contact.id}",  method: :delete %>

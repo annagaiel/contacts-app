@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   patch '/contacts/:id', to: 'pages#update'
   get '/contacts/:id/edit', to: 'pages#edit'
   delete '/contacts/:id', to: 'pages#destroy'
+  get '/all_marks', to: 'pages#all_marks'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

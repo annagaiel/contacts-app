@@ -9,7 +9,7 @@
   <th>phone number</th>
   <% @contacts.each do |person| %>
   <tr>
-    <td><a href="/contact/<%= person.id %>"><%= person.first_name %></a>
+    <td><a href="/contacts/<%= person.id %>"><%= person.first_name %></a>
     </td>
     <td><%= person.last_name %></td>
     <td><%= person.email %></td>
