@@ -4,6 +4,7 @@
 
 <table>
   <th>first name</th>
+  <th>middle name</th>
   <th>last name</th>
   <th>email</th>
   <th>phone number</th>
@@ -11,6 +12,7 @@
   <tr>
     <td><a href="/contacts/<%= person.id %>"><%= person.first_name %></a>
     </td>
+    <td><%= person.middle_name %></td>
     <td><%= person.last_name %></td>
     <td><%= person.email %></td>
     <td><%= person.phone_number %></td>

@@ -23,7 +23,7 @@ class PagesController < ApplicationController
   end
 
   def create
-    @new_contact = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
+    @new_contact = User.new(first_name: params[:first_name], middle_name:params[:middle_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
     @new_contact.save
     if @new_contact.valid?
       redirect_to root_path
@@ -32,7 +32,7 @@ class PagesController < ApplicationController
 
   def update
     @contact = User.find_by(id: params[:id])
-    @contact.update_attributes(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
+    @contact.update_attributes(first_name: params[:first_name], middle_name:params[:middle_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
     redirect_to root_path
   end
 
