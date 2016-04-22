@@ -8,6 +8,9 @@
   <th>last name</th>
   <th>email</th>
   <th>phone number</th>
+  <th>address</th>
+  <th>latitude</th>
+  <th>longitude</th>
   <% @contacts.each do |person| %>
   <tr>
     <td><a href="/contacts/<%= person.id %>"><%= person.first_name %></a>
@@ -16,6 +19,9 @@
     <td><%= person.last_name %></td>
     <td><%= person.email %></td>
     <td><%= person.phone_number %></td>
+    <td><%= person.address %></td>
+    <th><%= person.latitude %></th>
+    <th><%= person.longitude %></th>
   </tr>
   <% end %>
 </table>

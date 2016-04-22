@@ -23,7 +23,10 @@ class PagesController < ApplicationController
   end
 
   def create
-    @new_contact = User.new(first_name: params[:first_name], middle_name:params[:middle_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
+    coordinates = Geocoder.coordinates(params[:address])
+    @new_contact = User.new(first_name: params[:first_name], middle_name:params[:middle_name],
+    last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number],
+    address: params[:address], latitude: coordinates[0], longitude: coordinates[1])
     @new_contact.save
     if @new_contact.valid?
       redirect_to root_path
@@ -31,8 +34,11 @@ class PagesController < ApplicationController
   end
 
   def update
+    coordinates = Geocoder.coordinates(params[:address])
     @contact = User.find_by(id: params[:id])
-    @contact.update_attributes(first_name: params[:first_name], middle_name:params[:middle_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number])
+    @contact.update_attributes(first_name: params[:first_name], middle_name:params[:middle_name],
+    last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number],
+    address: params[:address], latitude: coordinates[0], longitude: coordinates[1])
     redirect_to root_path
   end
 
