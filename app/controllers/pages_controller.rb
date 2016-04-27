@@ -1,14 +1,11 @@
 class PagesController < ApplicationController
-  def details
-    @users = User.all
-  end
-
-  def first_contact
-    @user = User.first
-  end
 
   def index
     @contacts = User.all
+    search = params[:search]
+    if search.nil? == false
+      @contacts = User.where("first_name LIKE ? OR last_name LIKE ? ", "%#{search}%", "%#{search}%")
+    end
   end
 
   def new
