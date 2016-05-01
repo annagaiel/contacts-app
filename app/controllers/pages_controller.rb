@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def index
+    p params
     if current_user
       @contacts = current_user.contacts
     else

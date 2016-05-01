@@ -1,27 +1,29 @@
 <h1>All Contacts</h1>
 
-<a href="/contacts/new"> Add New</a>
+<%= link_to "Add New", "/contacts/new", :class => "btn btn-primary" %>
 
-<table>
-  <th>first name</th>
-  <th>middle name</th>
-  <th>last name</th>
-  <th>email</th>
-  <th>phone number</th>
-  <th>address</th>
-  <th>latitude</th>
-  <th>longitude</th>
-  <% @contacts.each do |person| %>
-  <tr>
-    <td><a href="/contacts/<%= person.id %>"><%= person.first_name %></a>
-    </td>
-    <td><%= person.middle_name %></td>
-    <td><%= person.last_name %></td>
-    <td><%= person.email %></td>
-    <td><%= person.phone_number %></td>
-    <td><%= person.address %></td>
-    <th><%= person.latitude %></th>
-    <th><%= person.longitude %></th>
-  </tr>
-  <% end %>
-</table>
+<div class="row">
+  <table class="table table-striped">
+    <th>First name</th>
+    <th>Middle name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Phone number</th>
+    <th>Address</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <% @contacts.each do |person| %>
+    <tr>
+      <td><a href="/contacts/<%= person.id %>"><%= person.first_name %></a>
+      </td>
+      <td><%= person.middle_name %></td>
+      <td><%= person.last_name %></td>
+      <td><%= person.email %></td>
+      <td><%= person.phone_number %></td>
+      <td><%= person.address %></td>
+      <th><%= person.latitude %></th>
+      <th><%= person.longitude %></th>
+    </tr>
+    <% end %>
+  </table>
+</div>

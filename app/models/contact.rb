@@ -1,5 +1,7 @@
 class Contact < ActiveRecord::Base
   belongs_to :user
+  has_many :group_contacts
+  has_many :groups, through: :group_contacts
   def self.all_marks
     Contact.where(first_name: "Mark")
   end

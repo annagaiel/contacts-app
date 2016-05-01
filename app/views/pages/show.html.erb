@@ -23,7 +23,10 @@
   <%= @contact.friendly_created_at %>
 </p>
 
-<%= link_to "Back", root_path %>
+<% @contact.groups.each do |group| %>
+  <p><%= group.name %></p>
+<% end %>
 
-<a href="/contacts/<%= @contact.id %>/edit">Edit</a> |
+<%= link_to "Back", root_path %>
+<%= link_to "Edit", "/contacts/#{@contact.id}/edit" %>
 <%= link_to "Delete", "/contacts/#{@contact.id}",  method: :delete %>

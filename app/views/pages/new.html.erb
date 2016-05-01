@@ -1,31 +1,40 @@
+<div class="col-md-4">
 <h1>New</h1>
 
 <%= form_tag "/contacts", method: :post do %>
-<div>
+<div class="form-group">
   <%= label_tag :first_name %>
   <%= text_field_tag :first_name %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :middle_name %>
   <%= text_field_tag :middle_name %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :last_name %>
   <%= text_field_tag :last_name %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :email %>
   <%= text_field_tag :email %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :phone_number %>
   <%= text_field_tag :phone_number %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :address %>
   <%= text_field_tag :address %>
 </div>
 
-<%= submit_tag "Create Contact" %>
+<%= submit_tag "Create Contact", :class => "btn btn-primary" %>
 
 <% end %>
+</div>
+
+<script>
+  var textNodes = $("input[type=text]");
+  for (var textbox in textNodes) {
+    textNodes[textbox].className += " form-control";
+  }
+</script>

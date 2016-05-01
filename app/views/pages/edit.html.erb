@@ -1,31 +1,40 @@
+<div class="col-md-4">
 <h1>Edit</h1>
 
 <%= form_tag "/contacts/#{@contact.id}", method: :patch do %>
-<div>
+<div class="form-group">
   <%= label_tag :first_name %>
   <%= text_field_tag :first_name, @contact.first_name %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :middle_name %>
   <%= text_field_tag :middle_name, @contact.middle_name %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :last_name %>
   <%= text_field_tag :last_name, @contact.last_name %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :email %>
   <%= text_field_tag :email, @contact.email %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :phone_number %>
   <%= text_field_tag :phone_number, @contact.phone_number %>
 </div>
-<div>
+<div class="form-group">
   <%= label_tag :address %>
   <%= text_field_tag :address, @contact.address %>
 </div>
 
-<%= submit_tag "Update Contact" %>
+<%= submit_tag "Update Contact" , :class => "btn btn-primary" %>
 
 <% end %>
+</div>
+
+<script>
+  var textNodes = $("input[type=text]");
+  for (var textbox in textNodes) {
+    textNodes[textbox].className += " form-control";
+  }
+</script>
