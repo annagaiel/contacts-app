@@ -13,6 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder',             '~> 2.0'
 gem 'faker',                '~> 1.6','>= 1.6.3'
 gem 'seed_dump'
+gem 'devise'
 gem 'sdoc',                 '~> 0.4.0', group: :doc
 
 group :development, :test do

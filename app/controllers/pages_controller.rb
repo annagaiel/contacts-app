@@ -1,10 +1,14 @@
 class PagesController < ApplicationController
 
   def index
-    @contacts = User.all
-    search = params[:search]
-    if search.nil? == false
-      @contacts = User.where("first_name LIKE ? OR last_name LIKE ? ", "%#{search}%", "%#{search}%")
+    if current_user
+      @contacts = current_user.contacts
+    else
+      @contacts = Contact.all
+      search = params[:search]
+      if search.nil? == false
+        @contacts = Contact.where("first_name LIKE ? OR last_name LIKE ? ", "%#{search}%", "%#{search}%")
+      end
     end
   end
 
@@ -12,16 +16,16 @@ class PagesController < ApplicationController
   end
 
   def show
-    @contact = User.find_by(id: params[:id])
+    @contact = Contact.find_by(id: params[:id])
   end
 
   def edit
-    @contact = User.find_by(id: params[:id])
+    @contact = Contact.find_by(id: params[:id])
   end
 
   def create
     coordinates = Geocoder.coordinates(params[:address])
-    @new_contact = User.new(first_name: params[:first_name], middle_name:params[:middle_name],
+    @new_contact = Contact.new(first_name: params[:first_name], middle_name:params[:middle_name],
     last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number],
     address: params[:address], latitude: coordinates[0], longitude: coordinates[1])
     @new_contact.save
@@ -32,7 +36,7 @@ class PagesController < ApplicationController
 
   def update
     coordinates = Geocoder.coordinates(params[:address])
-    @contact = User.find_by(id: params[:id])
+    @contact = Contact.find_by(id: params[:id])
     @contact.update_attributes(first_name: params[:first_name], middle_name:params[:middle_name],
     last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number],
     address: params[:address], latitude: coordinates[0], longitude: coordinates[1])
@@ -40,12 +44,12 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @contact = User.find_by(id: params[:id])
+    @contact = Contact.find_by(id: params[:id])
     @contact.destroy
     redirect_to root_path
   end
 
   def all_marks
-     @all_marks = User.all_marks
+     @all_marks = Contact.all_marks
   end
 end
